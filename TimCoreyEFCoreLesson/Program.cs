@@ -22,7 +22,7 @@ Steps:
 1. Create basic Models (Email, Phone, Contact)
 2. Add NuGet packages
 3. Create appsettings.json with trusted SQL Server connection string from 
-    connectionstrings.com
+    connectionstrings.com. Set to "Copy if newer" in properties.
 4. Create Data Access layer by setting up Context
     a. ContactContext : DbContext
     b. Standard console app builder/config/appsettings setup    
@@ -40,10 +40,15 @@ Steps:
         Foreight Key set up automatically between emails and contacts. Indexes created, too.
     e. There is also a code-behind file with more specifications like data type (VARCHAR(max))
     f. DO NOT IGNORE MIGRATIONS JUST BECAUSE THEY'RE CREATED. It's part of our code base that
-        must be maintained. Need to understand it so that you can diagnos problems.
+        must be maintained. Need to understand it so that you can diagnose problems.
 6. Push migration to production to analyze issues with the automatic setup
     a. PM Console -> Update-Database
     b. This runs the code in the ContactContext.cs to set up the SQL db and connection string
+        and builds the Db tables per the most recent migration. 
+    c. Notice lots of data that we'd consider required are marked as nullable and can be empty
+
+Stopped ~ 40 min
+    
 
 
 
