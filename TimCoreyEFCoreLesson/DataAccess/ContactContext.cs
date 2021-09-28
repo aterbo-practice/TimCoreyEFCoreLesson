@@ -16,8 +16,7 @@ namespace TimCoreyEFCoreLesson
         public DbSet<Email> EmailAddresses { get; set; }
         public DbSet<Phone> PhoneNumbers { get; set; }
 
-
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
+         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
