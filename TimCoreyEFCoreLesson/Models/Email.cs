@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TimCoreyEFCoreLesson.Models
 {
-    class Email
+    public class Email
     {
         public int Id { get; set; }
         public string EmailAddress { get; set; }

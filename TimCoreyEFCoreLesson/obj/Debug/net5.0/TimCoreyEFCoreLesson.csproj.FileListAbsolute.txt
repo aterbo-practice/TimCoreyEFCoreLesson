@@ -1,0 +1,5 @@
+C:\Users\agterbovich\source\repos\TimCoreyEFCoreLesson\TimCoreyEFCoreLesson\obj\Debug\net5.0\TimCoreyEFCoreLesson.csproj.AssemblyReference.cache
+C:\Users\agterbovich\source\repos\TimCoreyEFCoreLesson\TimCoreyEFCoreLesson\obj\Debug\net5.0\TimCoreyEFCoreLesson.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\agterbovich\source\repos\TimCoreyEFCoreLesson\TimCoreyEFCoreLesson\obj\Debug\net5.0\TimCoreyEFCoreLesson.AssemblyInfoInputs.cache
+C:\Users\agterbovich\source\repos\TimCoreyEFCoreLesson\TimCoreyEFCoreLesson\obj\Debug\net5.0\TimCoreyEFCoreLesson.AssemblyInfo.cs
+C:\Users\agterbovich\source\repos\TimCoreyEFCoreLesson\TimCoreyEFCoreLesson\obj\Debug\net5.0\TimCoreyEFCoreLesson.csproj.CoreCompileInputs.cache
