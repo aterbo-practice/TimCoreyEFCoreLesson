@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\agterbovich\\source\\repos\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson.csproj": {}
+    "C:\\Users\\agterbovich\\Source\\Repos\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson.csproj": {}
   },
   "projects": {
-    "C:\\Users\\agterbovich\\source\\repos\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson.csproj": {
+    "C:\\Users\\agterbovich\\Source\\Repos\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\agterbovich\\source\\repos\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson.csproj",
+        "projectUniqueName": "C:\\Users\\agterbovich\\Source\\Repos\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson.csproj",
         "projectName": "TimCoreyEFCoreLesson",
-        "projectPath": "C:\\Users\\agterbovich\\source\\repos\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson.csproj",
+        "projectPath": "C:\\Users\\agterbovich\\Source\\Repos\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson.csproj",
         "packagesPath": "C:\\Users\\agterbovich\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\agterbovich\\source\\repos\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson\\obj\\",
+        "outputPath": "C:\\Users\\agterbovich\\Source\\Repos\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

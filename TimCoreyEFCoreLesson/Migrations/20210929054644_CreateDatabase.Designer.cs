@@ -10,7 +10,7 @@ using TimCoreyEFCoreLesson;
 namespace TimCoreyEFCoreLesson.Migrations
 {
     [DbContext(typeof(ContactContext))]
-    [Migration("20210928051651_CreateDatabase")]
+    [Migration("20210929054644_CreateDatabase")]
     partial class CreateDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

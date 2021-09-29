@@ -69,3 +69,4 @@ C:\Users\agterbovich\source\repos\TimCoreyEFCoreLesson\TimCoreyEFCoreLesson\obj\
 C:\Users\agterbovich\source\repos\TimCoreyEFCoreLesson\TimCoreyEFCoreLesson\obj\Debug\net5.0\ref\TimCoreyEFCoreLesson.dll
 C:\Users\agterbovich\source\repos\TimCoreyEFCoreLesson\TimCoreyEFCoreLesson\obj\Debug\net5.0\TimCoreyEFCoreLesson.pdb
 C:\Users\agterbovich\source\repos\TimCoreyEFCoreLesson\TimCoreyEFCoreLesson\obj\Debug\net5.0\TimCoreyEFCoreLesson.genruntimeconfig.cache
+C:\Users\agterbovich\Source\Repos\TimCoreyEFCoreLesson\TimCoreyEFCoreLesson\bin\Debug\net5.0\appsettings.json

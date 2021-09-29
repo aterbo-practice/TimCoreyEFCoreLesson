@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7ZXFPRPKkmKhItZRtV2r42YiuPVxXOlTwJQPN9q4zVhRzt16AgQHVWHYqNlqI3NB9vjDz0Je7/FCUMuwW5DHVw==",
+  "dgSpecHash": "op0GjOe8DklturxKeuIe8yOk0QTfGboyVpZKgISpV390BcLydxT5K+ExPsqwK1o1R9ssegcsVsCxhzpVTMG6Hw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\agterbovich\\source\\repos\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson.csproj",
+  "projectFilePath": "C:\\Users\\agterbovich\\Source\\Repos\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson\\TimCoreyEFCoreLesson.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\agterbovich\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\agterbovich\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

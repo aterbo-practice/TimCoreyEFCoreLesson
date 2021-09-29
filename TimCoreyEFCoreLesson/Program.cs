@@ -9,6 +9,11 @@ namespace TimCoreyEFCoreLesson
             Console.WriteLine("Hello World!");
             Console.ReadLine();
         }
+
+        public void CreateAndy()
+        {
+
+        }
     }
 }
 
