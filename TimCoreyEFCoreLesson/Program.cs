@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Linq;
 using TimCoreyEFCoreLesson.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace TimCoreyEFCoreLesson
 {
@@ -7,7 +9,10 @@ namespace TimCoreyEFCoreLesson
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            CreateAndy();
+            ReadAll();
+            ReadAllWithInclude();
+            Console.WriteLine("I know EF");
             Console.ReadLine();
         }
 
@@ -27,6 +32,39 @@ namespace TimCoreyEFCoreLesson
             {
                 contactContext.Contacts.Add(c);
                 contactContext.SaveChanges();
+            }
+        }
+        
+        //This pulls in all records in the Contacts table, but doesn't reach into associated 
+        //email and phone number tables
+        private static void ReadAll()
+        {
+            using (var contactContext = new ContactContext())
+            {
+                var records = contactContext.Contacts.ToList();
+                
+                foreach (var c in records)
+                {
+                    Console.WriteLine(c.FirstName + " " + c.LastName);
+                }
+            }
+        }
+
+        //This pulls in all records in the Contacts table, but ties in the emails and phone
+        //numbers in the other tables and associates them with the object returned
+        private static void ReadAllWithInclude()
+        {
+            using (var contactContext = new ContactContext())
+            {
+                var records = contactContext.Contacts
+                    .Include(e => e.EmailAddresses)
+                    .Include(p => p.PhoneNumbers)
+                    .ToList();
+
+                foreach (var c in records)
+                {
+                    Console.WriteLine(c.FirstName + " " + c.LastName);
+                }
             }
         }
     }
@@ -66,6 +104,25 @@ Steps:
     b. This runs the code in the ContactContext.cs to set up the SQL db and connection string
         and builds the Db tables per the most recent migration. 
     c. Notice lots of data that we'd consider required are marked as nullable and can be empty
+7. Create method to create dummy user data-- CreateAndy()
+    a. Note he creates instance of Context within a using statement exactly when need.
+8. Create ReadAll methods to pull down all records. ToList() triggers the actual retrieval and 
+   manipulation of the data down to C#. Think about what data you really NEED to pull down
+   prior to making your query.
+    a. ReadAll() doesn't return the associated emails and phone numbers from other tables
+    b. Include() does return the extra data from other tables. Similar to Join in SQL
+9. These ReadAll methods are easy to impliment, and it will translate all this code to actual
+   SQL queries that do all the translation and work to and from the Db and C#
+    a. NOTE - EF is smart but can make inefficient SQL queries, especially if you aren't careful
+        when structuring C# code.
+    b. Tim recommends using SSMS -> Tools -> Monitoring to check what queries youe EF is 
+        ACTUALLY running via, and do tuning to your queries as necessary 
+            * Monitor what you need vs duplicate data that EF is pulling down
+            * Consider splitting EF queries into two pieces
+            * Watch if you're pulling IEnumerables (not creating objects) vs actually processing 
+                data through a ToList or other methods.
+                
+        
 
 Stopped ~ 40 min
     
