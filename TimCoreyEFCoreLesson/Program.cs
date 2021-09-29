@@ -1,4 +1,5 @@
 ﻿using System;
+using TimCoreyEFCoreLesson.Models;
 
 namespace TimCoreyEFCoreLesson
 {
@@ -10,9 +11,23 @@ namespace TimCoreyEFCoreLesson
             Console.ReadLine();
         }
 
-        public void CreateAndy()
+        private static void CreateAndy()
         {
+            var c = new Contact
+            {
+                FirstName = "Andy",
+                LastName = "Terbo"
+            };
+            c.EmailAddresses.Add(new Email { EmailAddress = "test@aterbo.com" });
+            c.EmailAddresses.Add(new Email { EmailAddress = "Work@workemail.com" });
+            c.PhoneNumbers.Add(new Phone { PhoneNumber = "555-555-1234" });
+            c.PhoneNumbers.Add(new Phone { PhoneNumber = "123-456-7890" });
 
+            using (var contactContext = new ContactContext())
+            {
+                contactContext.Contacts.Add(c);
+                contactContext.SaveChanges();
+            }
         }
     }
 }
