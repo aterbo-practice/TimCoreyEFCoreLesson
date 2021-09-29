@@ -9,7 +9,8 @@ namespace TimCoreyEFCoreLesson
     {
         static void Main(string[] args)
         {
-            CreateAndy();
+
+            //CreateAndy();    //This has already been run, Andy has been created in Db
             ReadAll();
             ReadAllWithInclude();
             Console.WriteLine("I know EF");
@@ -45,7 +46,7 @@ namespace TimCoreyEFCoreLesson
                 
                 foreach (var c in records)
                 {
-                    Console.WriteLine(c.FirstName + " " + c.LastName);
+                    Console.WriteLine($"{c.FirstName} {c.LastName}");
                 }
             }
         }
@@ -63,7 +64,7 @@ namespace TimCoreyEFCoreLesson
 
                 foreach (var c in records)
                 {
-                    Console.WriteLine(c.FirstName + " " + c.LastName);
+                    Console.WriteLine($"{c.FirstName} {c.LastName}");
                 }
             }
         }
@@ -121,10 +122,12 @@ Steps:
             * Consider splitting EF queries into two pieces
             * Watch if you're pulling IEnumerables (not creating objects) vs actually processing 
                 data through a ToList or other methods.
-                
+    c. When using the .Include joins, you can get lots of duplicate data coming from the Db,
+        So carefully think through what and why you're getting data and join-type queries.
+
         
 
-Stopped ~ 40 min
+Stopped ~ 60 min
     
 
 
