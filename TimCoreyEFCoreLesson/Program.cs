@@ -217,6 +217,10 @@ Steps:
         now limited, such as the nulls that your RemovePhoneNumbers created
     e. When update fails, you need to delete the bad data in your Db manually
 
+Tip - Be sure to watch your warnings and test your EF query speed. Be aware of what data is being
+        pulled down through what you're doing. EF warnings are very useful for this, but you have
+        to read them.
+
 
     
 
