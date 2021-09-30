@@ -204,7 +204,19 @@ Steps:
         onDelete: ReferentialAction.Restrict
 12. RemoveUser - Note that trying to remove only the user and not the associated phone numbers and
     emails won't work. Need to use the include statements to get all records that will be affected
-        
+13. Improving the SQL and Db structure, such as maximum lengths, etc.
+    a. When building the model files, add "decorators" above the parameter:
+        [MaxLength(50)]
+        [Required]  
+        [Column(TypeName = "varchar(100")] 
+    b. Since decorators were added, you need to make a new migration in the package manager
+        Add-Migration ImprovedColumns
+    c. Will warn you that data may be lost, since you've limited column length and you now have
+        required columns
+    d. Update-Database    This update will fail if you have a null in your Db where nulls are 
+        now limited, such as the nulls that your RemovePhoneNumbers created
+    e. When update fails, you need to delete the bad data in your Db manually
+
 
     
 
