@@ -13,6 +13,11 @@ namespace TimCoreyEFCoreLesson
             //CreateAndy();    //This has already been run, Andy has been created in Db
             ReadAll();
             ReadAllWithInclude();
+            ReadById(1);
+            UpdateFirstName(1, "Andrew");
+            RemovePhoneNumber(1, "555-555-1234");
+            //ErrorRemoveUser(1);
+            RemoveUser(1);
             Console.WriteLine("I know EF");
             Console.ReadLine();
         }
@@ -35,7 +40,7 @@ namespace TimCoreyEFCoreLesson
                 contactContext.SaveChanges();
             }
         }
-        
+
         //This pulls in all records in the Contacts table, but doesn't reach into associated 
         //email and phone number tables
         private static void ReadAll()
@@ -43,7 +48,7 @@ namespace TimCoreyEFCoreLesson
             using (var contactContext = new ContactContext())
             {
                 var records = contactContext.Contacts.ToList();
-                
+
                 foreach (var c in records)
                 {
                     Console.WriteLine($"{c.FirstName} {c.LastName}");
@@ -66,6 +71,69 @@ namespace TimCoreyEFCoreLesson
                 {
                     Console.WriteLine($"{c.FirstName} {c.LastName}");
                 }
+            }
+        }
+
+        private static void ReadById(int id)
+        {
+            using (var contactContext = new ContactContext())
+            {
+                var user = contactContext.Contacts.Where(c => c.Id == id).First();
+
+                Console.WriteLine($"{user.FirstName} {user.LastName}");
+            }
+        }
+
+        private static void UpdateFirstName(int id, string firstName)
+        {
+            using (var contactContext = new ContactContext())
+            {
+                var user = contactContext.Contacts.Where(c => c.Id == id).First();
+
+                user.FirstName = firstName;
+                contactContext.SaveChanges();
+            }
+        }
+
+        private static void RemovePhoneNumber(int id, string phoneNumber)
+        {
+            using (var contactContext = new ContactContext())
+            {
+                var user = contactContext.Contacts
+                     .Include(p => p.PhoneNumbers)
+                     .Where(c => c.Id == id).First();
+
+                user.PhoneNumbers.RemoveAll(p => p.PhoneNumber == phoneNumber);
+
+                contactContext.SaveChanges();
+            }
+        }
+
+        //This delete statement won't work, since it would leave orphaned records
+        //from the PhoneNumbers and EmailAddresses. Note that we're getting JUST
+        //the data from the Contacts table, not the associated email and phone
+        public static void ErrorRemoveUser(int id)
+        {
+            using (var contactContext = new ContactContext())
+            {
+                var user = contactContext.Contacts.Where(c => c.Id == id).First();
+                contactContext.Contacts.Remove(user);
+                contactContext.SaveChanges();
+            }
+        }
+
+        //This delete statement will work, since we are cascading the Include statements
+        //to get all of the associated records that are being impacted by the delete.
+        //This is good Db design
+        public static void RemoveUser(int id)
+        {
+            using (var contactContext = new ContactContext())
+            {
+                var user = contactContext.Contacts
+                                         .Include(p => p.PhoneNumbers)
+                                         .Include(e => e.EmailAddresses)
+                                         .Where(c => c.Id == id).First();
+                contactContext.SaveChanges();
             }
         }
     }
@@ -124,10 +192,20 @@ Steps:
                 data through a ToList or other methods.
     c. When using the .Include joins, you can get lots of duplicate data coming from the Db,
         So carefully think through what and why you're getting data and join-type queries.
-
+10. ReadById(), search for Id with Where and First
+    a. Uses SQL stored procedure that Tim says we should never use otherwise, 
+    b. SQL query returns TOP 1, which is a good query. Only pulls the number of records requested
+        from the server, so less network traffic. (Dapper can pull down whatever you ask for first,
+        then only filters the number requested once it's on your machine)
+11. RemovePhoneNumbers(), RemoveAll on PhoneNumbers
+    a. When looking at the SQL, just breaks the link by removing the ContactId. It left the actual 
+        phone number and entry, just broke the link to other tables. 
+    b. Note that in the migration the CreateTable for the phone numbers says 
+        onDelete: ReferentialAction.Restrict
+12. RemoveUser - Note that trying to remove only the user and not the associated phone numbers and
+    emails won't work. Need to use the include statements to get all records that will be affected
         
 
-Stopped ~ 60 min
     
 
 
